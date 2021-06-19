@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import React, { useState } from 'react'
+import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native'
+import { ListItem } from './ListItem'
+import { data } from './dummies/articles'
 
 export default function App() {
+  const [articles, setArticles] = useState(data)
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={articles}
+        renderItem={({ item }) => <ListItem title={item.title} author={item.author} urlToImage={item.urlToImage} />}
+        keyExtractor={(_, index) => index.toString()}
+      />
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-});
+})
