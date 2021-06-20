@@ -1,12 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-
-export type Article = {
-  title: string
-  author: string
-  urlToImage: string
-  url: string
-}
+import { Article } from '../entities/article'
 
 type Prop = {
   article: Article
