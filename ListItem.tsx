@@ -11,7 +11,7 @@ export const ListItem: React.FC<Article> = ({ title, author, urlToImage }) => {
   return (
     <View style={styles.box}>
       <View style={styles.thumbnail}>
-        <Image style={{ width: 99, height: 99 }} source={{ uri: urlToImage }} />
+        {!!urlToImage && <Image style={{ width: 99, height: 99 }} source={{ uri: urlToImage }} />}
       </View>
       <View style={styles.content}>
         <Text numberOfLines={3} style={styles.summary}>
