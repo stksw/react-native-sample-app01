@@ -1,25 +1,31 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 
 export type Article = {
   title: string
   author: string
   urlToImage: string
+  url: string
 }
 
-export const ListItem: React.FC<Article> = ({ title, author, urlToImage }) => {
+type Prop = {
+  article: Article
+  onPress: () => void
+}
+
+export const ListItem: React.FC<Prop> = ({ article, onPress }) => {
   return (
-    <View style={styles.box}>
+    <TouchableOpacity style={styles.box} onPress={onPress}>
       <View style={styles.thumbnail}>
-        {!!urlToImage && <Image style={{ width: 99, height: 99 }} source={{ uri: urlToImage }} />}
+        {!!article.urlToImage && <Image style={{ width: 99, height: 99 }} source={{ uri: article.urlToImage }} />}
       </View>
       <View style={styles.content}>
         <Text numberOfLines={3} style={styles.summary}>
-          {title}
+          {article.title}
         </Text>
-        <Text style={styles.subText}>{author}</Text>
+        <Text style={styles.subText}>{article.author}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
