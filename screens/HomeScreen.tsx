@@ -1,12 +1,12 @@
-import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RouteProp } from '@react-navigation/native'
-import { Article, ListItem } from '../component/ListItem'
+import { ListItem } from '../component/ListItem'
 import Constants from 'expo-constants'
 import axios from 'axios'
 import { StackParamList } from '../navigation/AppNavigator'
+import { Article } from '../entities/article'
 
 type HomeScreenNavigationProp = StackNavigationProp<StackParamList, 'Home'>
 type HomeScreenRouteProp = RouteProp<StackParamList, 'Home'>
