@@ -11,7 +11,8 @@ export const ListItem: React.FC<Prop> = ({ article, onPress }) => {
   return (
     <TouchableOpacity style={styles.box} onPress={onPress}>
       <View style={styles.thumbnail}>
-        {!!article.urlToImage && <Image style={{ width: 99, height: 99 }} source={{ uri: article.urlToImage }} />}
+        {article.urlToImage !== 'https://www.yomiuri.co.jp/media/2021/06/20210620-OYT1I50062-T.jpg?type=ogp' &&
+          !!article.urlToImage && <Image style={{ width: 99, height: 99 }} source={{ uri: article.urlToImage }} />}
       </View>
       <View style={styles.content}>
         <Text numberOfLines={3} style={styles.summary}>
